@@ -1,0 +1,901 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>DJ Tools Pakistan — Gear, advice & sourcing for DJs</title>
+<meta name="description" content="DJ equipment for beginners, intermediates and professionals in Pakistan. Buying consultation, equipment sourcing with quotes, and rentals and consultation for events and festivals.">
+<meta name="theme-color" content="#f4f3ef">
+<link rel="icon" href="assets/logo-black.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,300..900&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --paper:#f4f3ef;
+  --tile:#e8e7e2;
+  --ink:#0c0c0c;
+  --ink-2:#1a1a1a;
+  --muted:#6d6c66;
+  --line:rgba(12,12,12,.9);
+  --line-soft:rgba(12,12,12,.14);
+  --lime:#d7ff00;
+  --nav-h:72px;
+  --pad:clamp(16px,2.2vw,32px);
+  --ease:cubic-bezier(.16,1,.3,1);
+  --mono:'JetBrains Mono',ui-monospace,monospace;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{background:var(--paper);color:var(--ink);font-family:Archivo,system-ui,sans-serif;font-size:16px;line-height:1.5;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+body.menu-open{overflow:hidden}
+img{display:block;max-width:100%}
+a{color:inherit;text-decoration:none}
+button,input,select,textarea{font:inherit;color:inherit}
+::selection{background:var(--lime);color:var(--ink)}
+:focus-visible{outline:2px solid var(--ink);outline-offset:3px}
+
+.wide{font-stretch:125%;font-variation-settings:"wdth" 125}
+.mono{font-family:var(--mono);font-size:10px;letter-spacing:.08em;text-transform:uppercase}
+.wrap{padding-left:var(--pad);padding-right:var(--pad)}
+
+/* ---------- NAV ---------- */
+.nav{position:fixed;inset:0 0 auto 0;z-index:50;height:var(--nav-h);display:flex;align-items:center;justify-content:space-between;gap:24px;padding:0 var(--pad);background:rgba(244,243,239,.92);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-bottom:1px solid transparent;transition:transform .45s var(--ease),border-color .3s}
+.nav.scrolled{border-bottom-color:var(--line-soft)}
+.nav.hidden{transform:translateY(-100%)}
+.brand{display:flex;align-items:center;gap:12px;flex-shrink:0}
+.brand img{width:44px;height:44px;transition:transform .8s var(--ease)}
+.brand:hover img{transform:rotate(-20deg)}
+.brand-name{font-weight:800;font-size:12px;letter-spacing:.02em;line-height:1.1;font-stretch:125%;font-variation-settings:"wdth" 125}
+.brand-name small{display:block;font-family:var(--mono);font-weight:400;font-size:9px;letter-spacing:.08em;color:var(--muted);margin-top:3px}
+.nav-links{display:flex;gap:clamp(18px,2.4vw,36px)}
+.nav-links a{position:relative;font-size:13px;font-weight:500;padding:6px 0}
+.nav-links a::after{content:"";position:absolute;left:0;right:0;bottom:0;height:1px;background:var(--ink);transform:scaleX(0);transform-origin:right;transition:transform .45s var(--ease)}
+.nav-links a:hover::after,.nav-links a.active::after{transform:scaleX(1);transform-origin:left}
+.nav-right{display:flex;align-items:center;gap:18px}
+.clock{color:var(--muted);white-space:nowrap}
+.menu-btn{display:none;width:44px;height:44px;border:1px solid var(--ink);border-radius:50%;background:none;cursor:pointer;position:relative}
+.menu-btn span{position:absolute;left:13px;right:13px;height:1.5px;background:var(--ink);transition:transform .4s var(--ease),top .4s var(--ease)}
+.menu-btn span:nth-child(1){top:17px}.menu-btn span:nth-child(2){top:25px}
+.menu-btn[aria-expanded="true"] span:nth-child(1){top:21px;transform:rotate(45deg)}
+.menu-btn[aria-expanded="true"] span:nth-child(2){top:21px;transform:rotate(-45deg)}
+
+/* Buttons */
+.btn{--bg:transparent;--fg:var(--ink);display:inline-flex;align-items:center;justify-content:center;gap:10px;height:48px;padding:0 22px;border:1.5px solid var(--ink);background:linear-gradient(var(--ink),var(--ink)) no-repeat left bottom/100% 0%;color:var(--fg);font-weight:700;font-size:14px;cursor:pointer;transition:background-size .45s var(--ease),color .3s;white-space:nowrap}
+.btn:hover{background-size:100% 100%;color:var(--paper)}
+.btn.small{height:40px;padding:0 16px;font-size:13px}
+.btn.solid{background-color:var(--ink);color:var(--paper);background-image:linear-gradient(var(--lime),var(--lime))}
+.btn.solid:hover{color:var(--ink);border-color:var(--ink)}
+.btn.light{border-color:var(--paper);color:var(--paper);background-image:linear-gradient(var(--paper),var(--paper))}
+.btn.light:hover{color:var(--ink)}
+.btn .arr{transition:transform .45s var(--ease)}
+.btn:hover .arr{transform:translateX(4px)}
+
+/* Mobile menu */
+.menu{position:fixed;inset:0;z-index:40;background:var(--paper);padding:calc(var(--nav-h) + 24px) var(--pad) 32px;display:flex;flex-direction:column;justify-content:space-between;clip-path:inset(0 0 100% 0);transition:clip-path .7s var(--ease);visibility:hidden}
+.menu.open{clip-path:inset(0 0 0 0);visibility:visible}
+.menu nav{display:flex;flex-direction:column}
+.menu nav a{display:flex;justify-content:space-between;align-items:baseline;padding:14px 0;border-top:1px solid var(--line);font-size:clamp(28px,8vw,48px);font-weight:800;letter-spacing:-.02em;line-height:1.05;font-stretch:125%;font-variation-settings:"wdth" 125;opacity:0;transform:translateY(24px);transition:opacity .5s,transform .7s var(--ease)}
+.menu nav a .mono{font-stretch:100%;font-variation-settings:"wdth" 100;color:var(--muted)}
+.menu.open nav a{opacity:1;transform:none}
+.menu.open nav a:nth-child(2){transition-delay:.05s}.menu.open nav a:nth-child(3){transition-delay:.1s}.menu.open nav a:nth-child(4){transition-delay:.15s}.menu.open nav a:nth-child(5){transition-delay:.2s}.menu.open nav a:nth-child(6){transition-delay:.25s}.menu.open nav a:nth-child(7){transition-delay:.3s}
+.menu-foot{display:flex;flex-direction:column;gap:16px}
+
+/* ---------- HERO ---------- */
+.hero{margin-top:var(--nav-h);display:grid;grid-template-columns:1fr 1fr;height:calc(100svh - var(--nav-h));min-height:560px;max-height:1000px}
+.panel{position:relative;overflow:hidden;color:#fff;background:var(--ink)}
+.panel img{position:absolute;inset:-6% 0;width:100%;height:112%;object-fit:cover;transform:translate3d(0,var(--py,0),0) scale(1.08);animation:settle 2.4s var(--ease) forwards}
+@keyframes settle{to{transform:translate3d(0,var(--py,0),0) scale(1)}}
+.panel::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,.28) 0%,transparent 26%,transparent 50%,rgba(0,0,0,.62) 100%);pointer-events:none}
+.panel-cap{position:absolute;z-index:2;top:14px;left:14px;max-width:300px;line-height:1.35}
+.panel-foot{position:absolute;z-index:2;left:14px;right:14px;bottom:14px;display:flex;flex-direction:column;gap:14px}
+.hero-title{font-weight:800;font-size:clamp(30px,4.1vw,64px);line-height:.95;letter-spacing:-.025em;text-transform:uppercase}
+.hero-big{font-weight:800;font-size:clamp(72px,11.6vw,220px);line-height:.8;letter-spacing:-.05em;text-transform:uppercase;margin-left:-.04em}
+.line{display:block;overflow:hidden;padding-bottom:.04em}
+.line>span{display:inline-block;transform:translateY(105%);animation:rise 1.1s var(--ease) forwards;animation-delay:calc(.25s + var(--i,0)*.09s)}
+@keyframes rise{to{transform:none}}
+.panel-meta{display:flex;justify-content:space-between;align-items:center;gap:12px}
+.hero-actions{display:flex;gap:10px;flex-wrap:wrap;opacity:0;animation:fade .9s .7s forwards}
+@keyframes fade{to{opacity:1}}
+
+/* ---------- INTRO ---------- */
+.split{display:grid;grid-template-columns:minmax(180px,1fr) 3fr;gap:var(--pad)}
+.split>*{border-top:1.5px solid var(--line);padding-top:14px}
+.label{font-weight:700;font-size:13px;text-transform:uppercase;letter-spacing:.02em;font-stretch:125%;font-variation-settings:"wdth" 125}
+.label .mono{display:block;font-stretch:100%;font-variation-settings:"wdth" 100;color:var(--muted);font-weight:400;margin-top:4px}
+.statement{font-size:clamp(22px,2.6vw,38px);line-height:1.18;letter-spacing:-.012em;font-weight:400;max-width:26em}
+.statement em{font-style:normal;background:linear-gradient(transparent 62%,var(--lime) 62%)}
+.intro{padding-top:clamp(64px,9vw,120px);padding-bottom:clamp(64px,9vw,120px)}
+.intro-cta{display:flex;justify-content:flex-end;margin-top:36px}
+.link-arrow{display:inline-flex;align-items:center;gap:14px;font-weight:700;font-size:15px}
+.link-arrow i{display:block;width:110px;height:1.5px;background:var(--ink);position:relative;transition:width .5s var(--ease)}
+.link-arrow i::after{content:"";position:absolute;right:0;top:-4px;width:9px;height:9px;border-top:1.5px solid var(--ink);border-right:1.5px solid var(--ink);transform:rotate(45deg)}
+.link-arrow:hover i{width:150px}
+
+/* ---------- MARQUEE ---------- */
+.marquee{background:var(--ink);color:var(--paper);overflow:hidden;border-block:1px solid var(--ink)}
+.marquee-track{display:flex;width:max-content;animation:scroll 38s linear infinite}
+.marquee:hover .marquee-track{animation-play-state:paused}
+.marquee-track span{display:flex;align-items:center;gap:28px;padding:18px 14px;font-weight:800;font-size:clamp(18px,2vw,26px);text-transform:uppercase;letter-spacing:-.01em;white-space:nowrap;font-stretch:125%;font-variation-settings:"wdth" 125}
+.marquee-track span::after{content:"";width:10px;height:10px;border-radius:50%;background:var(--lime);margin-left:14px}
+@keyframes scroll{to{transform:translateX(-50%)}}
+
+/* ---------- SECTION HEAD ---------- */
+.section{padding-top:clamp(72px,10vw,140px);padding-bottom:clamp(72px,10vw,140px)}
+.h2{font-weight:800;font-size:clamp(38px,6vw,96px);line-height:.92;letter-spacing:-.035em;text-transform:uppercase}
+.head{margin-bottom:clamp(36px,5vw,64px)}
+.head .split>div:last-child{display:flex;flex-direction:column;gap:22px}
+.sub{max-width:36em;color:var(--muted);font-size:17px}
+
+/* ---------- GEAR BY LEVEL ---------- */
+.tiers{display:grid;grid-template-columns:repeat(3,1fr);gap:var(--pad)}
+.tier{display:flex;flex-direction:column}
+.tier-img{position:relative;aspect-ratio:1/1;background:var(--tile);overflow:hidden}
+.tier-img img{width:100%;height:100%;object-fit:cover;mix-blend-mode:multiply;transition:transform 1.2s var(--ease)}
+.tier:hover .tier-img img{transform:scale(1.05)}
+.tier-tag{position:absolute;top:12px;left:12px;background:var(--paper);padding:5px 9px}
+.tier-num{position:absolute;right:12px;bottom:10px;font-weight:800;font-size:13px;font-stretch:125%;font-variation-settings:"wdth" 125}
+.tier-body{padding-top:18px;display:flex;flex-direction:column;gap:10px;flex:1}
+.tier-body h3{font-weight:800;font-size:22px;letter-spacing:-.01em;font-stretch:125%;font-variation-settings:"wdth" 125}
+.tier-body p{font-size:17px;line-height:1.45}
+.kit{list-style:none;margin:6px 0 22px;border-top:1px solid var(--line-soft)}
+.kit li{display:flex;justify-content:space-between;gap:12px;padding:9px 0;border-bottom:1px solid var(--line-soft);font-size:14px}
+.kit li span:last-child{color:var(--muted);text-align:right}
+.tier .btn{margin-top:auto;width:100%}
+
+/* ---------- SERVICES ---------- */
+.svc-list{border-bottom:1.5px solid var(--line)}
+.svc{display:grid;grid-template-columns:120px minmax(0,1.3fr) minmax(0,1fr) 48px;gap:var(--pad);align-items:center;padding:30px 0;border-top:1.5px solid var(--line);cursor:pointer}
+.svc-num{color:var(--muted)}
+.svc h3{font-weight:800;font-size:clamp(26px,3.4vw,52px);line-height:.95;letter-spacing:-.03em;text-transform:uppercase;transition:transform .6s var(--ease)}
+.svc p{color:var(--muted);font-size:16px;transition:color .3s}
+.svc-go{width:48px;height:48px;border:1.5px solid var(--ink);border-radius:50%;display:grid;place-items:center;transition:background .3s,transform .6s var(--ease)}
+.svc-go svg{width:16px;transition:transform .6s var(--ease)}
+.svc:hover h3{transform:translateX(14px)}
+.svc:hover p{color:var(--ink)}
+.svc:hover .svc-go{background:var(--lime)}
+.svc:hover .svc-go svg{transform:rotate(-45deg)}
+.svc-thumb{display:none}
+.preview{position:fixed;z-index:30;left:0;top:0;width:300px;aspect-ratio:4/3;pointer-events:none;overflow:hidden;opacity:0;transform:translate3d(var(--x,0),var(--y,0),0) scale(.85);transition:opacity .35s,scale .45s var(--ease)}
+.preview.on{opacity:1;scale:1.176}
+.preview img{width:100%;height:100%;object-fit:cover}
+
+/* ---------- CULTURE ---------- */
+.feature{position:relative;height:clamp(420px,80vh,860px);overflow:hidden;color:#fff}
+.feature img{position:absolute;inset:-10% 0;width:100%;height:120%;object-fit:cover;transform:translate3d(0,var(--py,0),0)}
+.feature::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,.3),transparent 30%,transparent 60%,rgba(0,0,0,.55))}
+.feature .panel-cap{top:var(--pad);left:var(--pad)}
+.feature-title{position:absolute;z-index:2;left:var(--pad);right:var(--pad);bottom:var(--pad);font-weight:800;font-size:clamp(44px,9vw,150px);line-height:.85;letter-spacing:-.045em;text-transform:uppercase}
+.culture-text{padding-top:clamp(40px,5vw,64px)}
+.mosaic{display:grid;grid-template-columns:repeat(12,1fr);gap:var(--pad);margin-top:clamp(56px,8vw,110px)}
+.shot{position:relative;overflow:hidden;background:var(--tile)}
+.shot img{width:100%;height:100%;object-fit:cover;transition:transform 1.4s var(--ease)}
+.shot:hover img{transform:scale(1.04)}
+.shot figcaption{position:absolute;left:12px;bottom:12px;right:12px;color:#fff;display:flex;justify-content:space-between;text-shadow:0 1px 8px rgba(0,0,0,.4)}
+.shot.a{grid-column:1/6;grid-row:1/3;aspect-ratio:3/4}
+.shot.b{grid-column:7/13;aspect-ratio:4/3}
+.shot.c{grid-column:6/12;aspect-ratio:4/3;margin-top:calc(var(--pad)*-0)}
+.cities{display:flex;flex-wrap:wrap;gap:8px;margin-top:22px}
+.cities span{border:1px solid var(--line);border-radius:99px;padding:6px 12px}
+.cities span.here{background:var(--ink);color:var(--paper)}
+
+/* ---------- SOURCING (dark) ---------- */
+.dark{background:var(--ink);color:var(--paper)}
+.dark .split>*{border-color:rgba(244,243,239,.85)}
+.dark .label .mono,.dark .sub{color:#a3a29c}
+.sourcing-grid{display:grid;grid-template-columns:1.1fr 1fr;gap:clamp(24px,4vw,64px);align-items:stretch}
+.sourcing-img{position:relative;overflow:hidden;min-height:420px}
+.sourcing-img img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.sourcing-img .panel-cap{color:#fff}
+.steps{list-style:none;display:flex;flex-direction:column}
+.steps li{display:grid;grid-template-columns:56px 1fr;gap:16px;padding:26px 0;border-top:1px solid rgba(244,243,239,.25)}
+.steps li:last-child{border-bottom:1px solid rgba(244,243,239,.25)}
+.step-n{font-weight:800;font-size:28px;color:var(--lime);line-height:1;font-stretch:125%;font-variation-settings:"wdth" 125}
+.steps h4{font-weight:700;font-size:19px;margin-bottom:6px}
+.steps p{color:#a3a29c;font-size:15px}
+.sourcing-cta{display:flex;gap:12px;flex-wrap:wrap;margin-top:28px}
+
+/* ---------- EVENTS ---------- */
+.events-hero{position:relative;overflow:hidden;aspect-ratio:16/7;min-height:360px;color:#fff}
+.events-hero img{position:absolute;inset:-8% 0;width:100%;height:116%;object-fit:cover;transform:translate3d(0,var(--py,0),0)}
+.events-hero::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,.25),transparent 40%,rgba(0,0,0,.5))}
+.events-cols{display:grid;grid-template-columns:repeat(2,1fr);gap:var(--pad);margin-top:clamp(32px,4vw,56px)}
+.ev-card{border-top:1.5px solid var(--line);padding-top:16px}
+.ev-card h3{font-weight:800;font-size:clamp(22px,2.4vw,32px);letter-spacing:-.02em;text-transform:uppercase;margin-bottom:12px;font-stretch:125%;font-variation-settings:"wdth" 125}
+.ev-card>p{color:var(--muted);margin-bottom:18px;max-width:34em}
+.ticks{list-style:none;margin-bottom:24px}
+.ticks li{display:flex;gap:12px;padding:10px 0;border-bottom:1px solid var(--line-soft);font-size:15px}
+.ticks li::before{content:"";flex-shrink:0;width:8px;height:8px;margin-top:7px;background:var(--ink);border-radius:50%}
+
+/* ---------- RENTALS ---------- */
+.rentals{padding-top:0}
+.rig{display:grid;grid-template-columns:1.05fr 1fr;border:1.5px solid var(--line)}
+.rig-media{position:relative;background:var(--tile);min-height:100%;aspect-ratio:1/1;overflow:hidden;border-right:1.5px solid var(--line)}
+.rig-media img{width:100%;height:100%;object-fit:cover;mix-blend-mode:multiply;transition:transform 1.4s var(--ease)}
+.rig:hover .rig-media img{transform:scale(1.04)}
+.rig-code{position:absolute;left:12px;bottom:12px;color:var(--muted)}
+.rig-body{display:flex;flex-direction:column;gap:clamp(24px,3vw,36px);padding:clamp(22px,3vw,40px)}
+.rig-title .mono{color:var(--muted)}
+.rig-title h3{font-weight:800;font-size:clamp(40px,5.4vw,84px);line-height:.9;letter-spacing:-.035em;text-transform:uppercase;margin:10px 0 14px}
+.rig-title p{font-size:17px;max-width:30em}
+.spec h4{font-weight:400;color:var(--muted);padding-bottom:10px;border-bottom:1.5px solid var(--line)}
+.spec dl div{display:flex;justify-content:space-between;align-items:baseline;gap:16px;padding:13px 0;border-bottom:1px solid var(--line-soft)}
+.spec dt{font-weight:600;font-size:16px}
+.spec dd{color:var(--muted);text-align:right;font-size:15px}
+.spec dd b{color:var(--ink);font-weight:800;font-stretch:125%;font-variation-settings:"wdth" 125;margin-right:2px}
+.rig-cta{margin-top:auto;display:flex;align-items:center;gap:18px;flex-wrap:wrap}
+.rig-cta p{color:var(--muted);font-size:14px}
+.flow{list-style:none;display:grid;grid-template-columns:repeat(4,1fr);gap:var(--pad);margin-top:clamp(40px,5vw,64px)}
+.flow li{border-top:1.5px solid var(--line);padding-top:16px}
+.flow-n{display:block;font-weight:800;font-size:clamp(36px,4vw,56px);line-height:1;letter-spacing:-.04em;margin-bottom:18px}
+.flow h4{font-weight:700;font-size:17px;margin-bottom:6px}
+.flow p{color:var(--muted);font-size:15px}
+
+/* ---------- QUOTE FORM ---------- */
+.quote{background:var(--tile)}
+.form{display:grid;grid-template-columns:repeat(2,1fr);gap:22px var(--pad)}
+.field{display:flex;flex-direction:column;gap:8px}
+.field.full{grid-column:1/-1}
+.field>label,.field legend{font-family:var(--mono);font-size:10px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+fieldset{border:0}
+.field legend{margin-bottom:10px}
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.chip input{position:absolute;opacity:0;pointer-events:none}
+.chip span{display:inline-flex;align-items:center;height:42px;padding:0 16px;border:1.5px solid var(--ink);border-radius:99px;font-size:14px;font-weight:600;cursor:pointer;transition:background .25s,color .25s}
+.chip span:hover{background:rgba(12,12,12,.06)}
+.chip input:checked+span{background:var(--ink);color:var(--paper)}
+.chip input:focus-visible+span{outline:2px solid var(--ink);outline-offset:3px}
+.input{width:100%;height:52px;padding:0 14px;background:var(--paper);border:1.5px solid transparent;border-bottom-color:var(--ink);font-size:16px;border-radius:0;transition:border-color .25s;-webkit-appearance:none;appearance:none}
+textarea.input{height:auto;min-height:130px;padding:14px;resize:vertical}
+.input:focus{outline:none;border-color:var(--ink)}
+.cond{display:none}
+.cond.show{display:flex;animation:fade .4s forwards}
+.form-foot{grid-column:1/-1;display:flex;justify-content:space-between;align-items:center;gap:20px;flex-wrap:wrap;border-top:1.5px solid var(--line);padding-top:22px}
+.form-foot p{color:var(--muted);font-size:14px;max-width:34em}
+.form-note{grid-column:1/-1;display:none;padding:14px 16px;background:var(--lime);font-size:15px}
+.form-note.show{display:block}
+
+/* ---------- FOOTER ---------- */
+footer{background:var(--ink);color:var(--paper);padding-top:clamp(56px,7vw,96px);overflow:hidden}
+.foot-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:var(--pad)}
+.foot-grid h5{font-family:var(--mono);font-weight:400;font-size:10px;letter-spacing:.08em;text-transform:uppercase;color:#8d8c86;margin-bottom:14px}
+.foot-grid a{display:block;padding:4px 0;font-size:15px;transition:color .2s}
+.foot-grid a:hover{color:var(--lime)}
+.foot-lead{font-size:clamp(20px,2vw,26px);line-height:1.2;max-width:18em}
+.wordmark{margin-top:clamp(48px,7vw,96px);font-weight:900;font-size:clamp(34px,10.4vw,200px);line-height:.8;letter-spacing:-.05em;text-transform:uppercase;white-space:nowrap;display:flex;align-items:flex-end;gap:.12em}
+.wordmark img{width:.8em;height:.8em;flex-shrink:0}
+.foot-bar{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;padding:22px 0;margin-top:24px;border-top:1px solid rgba(244,243,239,.2);color:#8d8c86}
+
+/* ---------- REVEAL ---------- */
+[data-reveal]{opacity:0;transform:translateY(28px);transition:opacity .9s var(--ease),transform 1.1s var(--ease);transition-delay:calc(var(--d,0)*90ms)}
+[data-reveal].in{opacity:1;transform:none}
+
+/* ---------- RESPONSIVE ---------- */
+@media (max-width:1100px){
+  .nav-links{gap:18px}
+  .clock{display:none}
+}
+@media (max-width:960px){
+  .nav-links,.nav-right .btn{display:none}
+  .menu-btn{display:block}
+  .tiers{grid-template-columns:none;grid-auto-flow:column;grid-auto-columns:minmax(280px,78%);overflow-x:auto;scroll-snap-type:x mandatory;scroll-padding-inline:var(--pad);margin:0 calc(var(--pad)*-1);padding:0 var(--pad) 8px;scrollbar-width:none}
+  .tiers::-webkit-scrollbar{display:none}
+  .tier{scroll-snap-align:start}
+  .sourcing-grid{grid-template-columns:1fr}
+  .rig{grid-template-columns:1fr}
+  .rig-media{border-right:0;border-bottom:1.5px solid var(--line);aspect-ratio:16/10}
+  .flow{grid-template-columns:repeat(2,1fr);row-gap:36px}
+  .sourcing-img{min-height:0;aspect-ratio:4/3}
+  .foot-grid{grid-template-columns:1fr 1fr}
+  .foot-grid>div:first-child{grid-column:1/-1}
+}
+@media (max-width:760px){
+  .hero{grid-template-columns:1fr;height:auto;max-height:none;min-height:0}
+  .panel.left{height:calc(88svh - var(--nav-h));min-height:520px}
+  .panel.right{height:62svh;min-height:380px}
+  .hero-big{font-size:22vw}
+  .split{grid-template-columns:1fr;gap:18px}
+  .split>*+*{border-top:0;padding-top:0}
+  .intro-cta{justify-content:flex-start}
+  .svc{grid-template-columns:1fr 44px;gap:10px 16px;padding:22px 0}
+  .svc-num{grid-column:1/-1}
+  .svc h3{grid-column:1;grid-row:2}
+  .svc-go{grid-column:2;grid-row:2;width:44px;height:44px}
+  .svc p{grid-column:1/-1}
+  .svc-thumb{display:block;grid-column:1/-1;aspect-ratio:16/9;overflow:hidden;margin-top:6px}
+  .svc-thumb img{width:100%;height:100%;object-fit:cover}
+  .svc:hover h3{transform:none}
+  .mosaic{grid-template-columns:1fr 1fr}
+  .shot.a{grid-column:1/-1;grid-row:auto;aspect-ratio:4/5}
+  .shot.b,.shot.c{grid-column:auto;aspect-ratio:1/1}
+  .events-hero{aspect-ratio:4/5}
+  .events-cols{grid-template-columns:1fr;gap:40px}
+  .rig-cta .btn{width:100%}
+  .flow{grid-template-columns:1fr;row-gap:28px}
+  .flow li{display:grid;grid-template-columns:64px 1fr;column-gap:12px}
+  .flow-n{grid-row:span 2;margin:0;font-size:32px}
+  .form{grid-template-columns:1fr}
+  .form-foot .btn{width:100%}
+}
+@media (max-width:420px){
+  .brand-name small{display:none}
+  .hero-actions .btn{flex:1}
+}
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation-duration:.01ms!important;animation-delay:0s!important;transition-duration:.01ms!important;scroll-behavior:auto!important}
+  [data-reveal]{opacity:1;transform:none}
+  .marquee-track{animation:none}
+}
+</style>
+</head>
+<body>
+
+<header class="nav" id="nav">
+  <a href="#top" class="brand" aria-label="DJ Tools Pakistan — home">
+    <img src="assets/logo-black.png" alt="">
+    <span class="brand-name">DJ TOOLS PAKISTAN<small>EST. 2022</small></span>
+  </a>
+  <nav class="nav-links" aria-label="Primary">
+    <a href="#gear">Gear</a>
+    <a href="#services">Services</a>
+    <a href="#culture">Culture</a>
+    <a href="#sourcing">Sourcing</a>
+    <a href="#events">Events</a>
+    <a href="#rentals">Rentals</a>
+  </nav>
+  <div class="nav-right">
+    <span class="clock mono" data-clock="Asia/Karachi" data-prefix="PKT ">PKT --:--:--</span>
+    <a href="#quote" class="btn small">Get a quote</a>
+    <button class="menu-btn" id="menuBtn" aria-label="Open menu" aria-expanded="false" aria-controls="menu"><span></span><span></span></button>
+  </div>
+</header>
+
+<div class="menu" id="menu" aria-hidden="true">
+  <nav aria-label="Mobile">
+    <a href="#gear">Gear <span class="mono">01</span></a>
+    <a href="#services">Services <span class="mono">02</span></a>
+    <a href="#culture">Culture <span class="mono">03</span></a>
+    <a href="#sourcing">Sourcing <span class="mono">04</span></a>
+    <a href="#events">Events <span class="mono">05</span></a>
+    <a href="#rentals">Rentals <span class="mono">06</span></a>
+    <a href="#quote">Get a quote <span class="mono">07</span></a>
+  </nav>
+  <div class="menu-foot">
+    <a href="mailto:hello@djtoolspakistan.com" class="link-arrow">hello@djtoolspakistan.com <i></i></a>
+    <span class="mono" style="color:var(--muted)">Beginners · Intermediates · Professionals</span>
+  </div>
+</div>
+
+<main id="top">
+
+  <!-- HERO -->
+  <section class="hero" aria-label="Introduction">
+    <div class="panel left">
+      <img src="assets/hero-left.jpg" alt="A DJ plays a compact controller at a crowded house party" data-parallax="0.12" fetchpriority="high">
+      <p class="panel-cap mono">First controller, first party. Honest advice for DJs just starting out.</p>
+      <div class="panel-foot">
+        <h1 class="hero-title wide">
+          <span class="line"><span style="--i:0">Gear, advice</span></span>
+          <span class="line"><span style="--i:1">&amp; sourcing</span></span>
+          <span class="line"><span style="--i:2">for DJs.</span></span>
+        </h1>
+        <div class="hero-actions">
+          <a href="#gear" class="btn light small">Find your setup <span class="arr">→</span></a>
+          <a href="#quote" class="btn light small">Get a quote</a>
+        </div>
+        <div class="panel-meta mono"><span>Karachi</span><span data-clock="Asia/Karachi">--:--:--</span></div>
+      </div>
+    </div>
+    <div class="panel right">
+      <img src="assets/hero-right.jpg" alt="A DJ sits in a home studio surrounded by records" data-parallax="0.12">
+      <p class="panel-cap mono">From bedroom sessions to festival stages. Gear for every level.</p>
+      <div class="panel-foot">
+        <div class="hero-big wide"><span class="line"><span style="--i:1">Play.</span></span></div>
+        <div class="panel-meta mono"><span>Berlin · Lagos · Karachi</span><span data-clock="Europe/Berlin">--:--:--</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- INTRO -->
+  <section class="intro wrap">
+    <div class="split">
+      <div class="label" data-reveal>DJ Tools Pakistan<span class="mono">What we do</span></div>
+      <div>
+        <p class="statement" data-reveal style="--d:1">We supply DJ equipment for <em>beginners, intermediates and professionals</em>. We help you pick the right setup, source gear that's hard to find in Pakistan, and rent out booth-ready equipment for events and festivals.</p>
+        <div class="intro-cta" data-reveal style="--d:2"><a href="#services" class="link-arrow">See our services <i></i></a></div>
+      </div>
+    </div>
+  </section>
+
+  <div class="marquee" aria-hidden="true">
+    <div class="marquee-track">
+      <span>Beginner</span><span>Intermediate</span><span>Professional</span><span>Buying consultation</span><span>Equipment sourcing</span><span>Nationwide rentals</span><span>Festival consultation</span>
+      <span>Beginner</span><span>Intermediate</span><span>Professional</span><span>Buying consultation</span><span>Equipment sourcing</span><span>Nationwide rentals</span><span>Festival consultation</span>
+    </div>
+  </div>
+
+  <!-- GEAR BY LEVEL -->
+  <section class="section wrap" id="gear">
+    <div class="head">
+      <div class="split">
+        <div class="label" data-reveal>01 — Gear<span class="mono">By level</span></div>
+        <div>
+          <h2 class="h2 wide" data-reveal style="--d:1">Start where<br>you are.</h2>
+          <p class="sub" data-reveal style="--d:2">Every DJ's path is different. Tell us where you're at, and we'll match you with gear that fits your skills, your budget and where you play.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="tiers">
+      <article class="tier" data-reveal>
+        <div class="tier-img">
+          <img src="assets/tier-beginner.jpg" alt="Compact two-channel DJ controller" loading="lazy">
+          <span class="tier-tag mono">For learners</span>
+          <span class="tier-num">01</span>
+        </div>
+        <div class="tier-body">
+          <h3>Beginner</h3>
+          <p>Your first controller and your first mix. We'll help you choose something you won't outgrow in six months.</p>
+          <ul class="kit">
+            <li><span>Controller</span><span>2-channel</span></li>
+            <li><span>Headphones</span><span>Closed-back</span></li>
+            <li><span>Monitors</span><span>Desktop pair</span></li>
+          </ul>
+          <a href="#quote" class="btn" data-type="advice" data-level="Beginner">Get beginner advice <span class="arr">→</span></a>
+        </div>
+      </article>
+
+      <article class="tier" data-reveal style="--d:1">
+        <div class="tier-img">
+          <img src="assets/tier-intermediate.jpg" alt="Standalone all-in-one DJ system with headphones" loading="lazy">
+          <span class="tier-tag mono">For gigging DJs</span>
+          <span class="tier-num">02</span>
+        </div>
+        <div class="tier-body">
+          <h3>Intermediate</h3>
+          <p>You're playing out and ready to go standalone. Gear that travels well and matches what you'll find in venues.</p>
+          <ul class="kit">
+            <li><span>System</span><span>Standalone / 4-ch</span></li>
+            <li><span>Workflow</span><span>USB, no laptop</span></li>
+            <li><span>Headphones</span><span>Pro DJ</span></li>
+          </ul>
+          <a href="#quote" class="btn" data-type="advice" data-level="Intermediate">Plan my upgrade <span class="arr">→</span></a>
+        </div>
+      </article>
+
+      <article class="tier" data-reveal style="--d:2">
+        <div class="tier-img">
+          <img src="assets/tier-pro.jpg" alt="Two professional media players and a club mixer" loading="lazy">
+          <span class="tier-tag mono">For pros &amp; venues</span>
+          <span class="tier-num">03</span>
+        </div>
+        <div class="tier-body">
+          <h3>Professional</h3>
+          <p>The club-standard setup for residents, touring DJs, clubs and venues, including specific models sourced on request.</p>
+          <ul class="kit">
+            <li><span>Players</span><span>Club-standard</span></li>
+            <li><span>Mixer</span><span>4-channel club</span></li>
+            <li><span>Booth</span><span>Monitors &amp; cabling</span></li>
+          </ul>
+          <a href="#quote" class="btn" data-type="advice" data-level="Professional">Spec a pro setup <span class="arr">→</span></a>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <!-- SERVICES -->
+  <section class="section wrap" id="services" style="padding-top:0">
+    <div class="head">
+      <div class="split">
+        <div class="label" data-reveal>02 — Services<span class="mono">More than a shop</span></div>
+        <div><h2 class="h2 wide" data-reveal style="--d:1">How we<br>help.</h2></div>
+      </div>
+    </div>
+
+    <div class="svc-list">
+      <a href="#quote" class="svc" data-type="advice" data-img="assets/service-consult.jpg" data-reveal>
+        <span class="svc-num mono">01 / Consultation</span>
+        <h3 class="wide">Buying advice</h3>
+        <p>Not sure what to buy? Tell us your budget, your style and where you play. We'll recommend a setup, even if it's not the most expensive one.</p>
+        <span class="svc-go" aria-hidden="true"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M1 8h14M9 2l6 6-6 6"/></svg></span>
+        <div class="svc-thumb"><img src="assets/service-consult.jpg" alt="" loading="lazy"></div>
+      </a>
+      <a href="#quote" class="svc" data-type="sourcing" data-img="assets/service-sourcing.jpg" data-reveal>
+        <span class="svc-num mono">02 / Sourcing</span>
+        <h3 class="wide">Find any gear</h3>
+        <p>Looking for a specific model or something hard to get in Pakistan? Send us a request and we'll come back with a clear quote.</p>
+        <span class="svc-go" aria-hidden="true"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M1 8h14M9 2l6 6-6 6"/></svg></span>
+        <div class="svc-thumb"><img src="assets/service-sourcing.jpg" alt="" loading="lazy"></div>
+      </a>
+      <a href="#quote" class="svc" data-type="rental" data-img="assets/service-festival.jpg" data-reveal>
+        <span class="svc-num mono">03 / Rentals</span>
+        <h3 class="wide">Events &amp; festivals</h3>
+        <p>Booth-ready equipment for club nights, private events, brand activations and festivals.</p>
+        <span class="svc-go" aria-hidden="true"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M1 8h14M9 2l6 6-6 6"/></svg></span>
+        <div class="svc-thumb"><img src="assets/service-festival.jpg" alt="" loading="lazy"></div>
+      </a>
+      <a href="#quote" class="svc" data-type="event-consult" data-img="assets/culture-b2b.jpg" data-reveal>
+        <span class="svc-num mono">04 / Event consultation</span>
+        <h3 class="wide">Plan the booth</h3>
+        <p>Planning an event? We help you spec the DJ booth, monitoring and setup so the night runs smoothly.</p>
+        <span class="svc-go" aria-hidden="true"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M1 8h14M9 2l6 6-6 6"/></svg></span>
+        <div class="svc-thumb"><img src="assets/culture-b2b.jpg" alt="" loading="lazy"></div>
+      </a>
+    </div>
+  </section>
+
+  <!-- CULTURE -->
+  <section id="culture">
+    <div class="feature">
+      <img src="assets/culture-crowd.jpg" alt="A diverse crowd dancing in a warehouse" data-parallax="0.18" loading="lazy">
+      <p class="panel-cap mono">A global culture, played locally.</p>
+      <h2 class="feature-title wide" data-reveal>One room.<br>Every city.</h2>
+    </div>
+
+    <div class="wrap culture-text">
+      <div class="split">
+        <div class="label" data-reveal>03 — Culture<span class="mono">The global DJ community</span></div>
+        <div>
+          <p class="statement" data-reveal style="--d:1">DJing is digging for records at 2am, flyers pasted on concrete, friends going back-to-back, and a room full of strangers moving together. It's a global culture of sound, artwork and creativity, and we want Pakistan's DJs to be part of it.</p>
+          <div class="cities mono" data-reveal style="--d:2">
+            <span>Berlin</span><span>London</span><span>Lagos</span><span>Detroit</span><span>Tokyo</span><span>Mumbai</span><span>Dubai</span><span class="here">Karachi</span><span class="here">Lahore</span><span class="here">Islamabad</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="mosaic">
+        <figure class="shot a" data-reveal>
+          <img src="assets/culture-artwork.jpg" alt="A wall of screen-printed club flyers and poster artwork" loading="lazy">
+          <figcaption class="mono"><span>Flyers &amp; artwork</span><span>01</span></figcaption>
+        </figure>
+        <figure class="shot b" data-reveal style="--d:1">
+          <img src="assets/culture-crate.jpg" alt="Hands flipping through vinyl records in a crate" loading="lazy">
+          <figcaption class="mono"><span>Record digging</span><span>02</span></figcaption>
+        </figure>
+        <figure class="shot c" data-reveal style="--d:2">
+          <img src="assets/culture-b2b.jpg" alt="Two DJs laughing while playing back-to-back" loading="lazy">
+          <figcaption class="mono"><span>Back to back</span><span>03</span></figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <!-- SOURCING -->
+  <section class="section wrap dark" id="sourcing" style="margin-top:clamp(72px,10vw,140px)">
+    <div class="head">
+      <div class="split">
+        <div class="label" data-reveal>04 — Sourcing<span class="mono">Request a quote</span></div>
+        <div>
+          <h2 class="h2 wide" data-reveal style="--d:1">Can't find it?<br>We'll source it.</h2>
+          <p class="sub" data-reveal style="--d:2">Whether it's a specific mixer, a replacement part or a full setup, tell us what you're after and we'll find it and quote you.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="sourcing-grid">
+      <div class="sourcing-img" data-reveal>
+        <img src="assets/service-sourcing.jpg" alt="A newly delivered DJ mixer being unboxed" loading="lazy">
+        <p class="panel-cap mono">Sourced on request. Delivered to you.</p>
+      </div>
+      <div data-reveal style="--d:1">
+        <ol class="steps">
+          <li><span class="step-n">01</span><div><h4>Send your request</h4><p>Share the brand and model, or describe what you need and your budget.</p></div></li>
+          <li><span class="step-n">02</span><div><h4>Get a clear quote</h4><p>We check availability and costs, then send you a quote.</p></div></li>
+          <li><span class="step-n">03</span><div><h4>Approve &amp; receive</h4><p>Once you approve, we take care of the rest and keep you updated until it arrives.</p></div></li>
+        </ol>
+        <div class="sourcing-cta">
+          <a href="#quote" class="btn light" data-type="sourcing">Request a sourcing quote <span class="arr">→</span></a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- EVENTS -->
+  <section class="section wrap" id="events">
+    <div class="head">
+      <div class="split">
+        <div class="label" data-reveal>05 — Events<span class="mono">Rentals &amp; consultation</span></div>
+        <div>
+          <h2 class="h2 wide" data-reveal style="--d:1">Rooftop to<br>festival field.</h2>
+          <p class="sub" data-reveal style="--d:2">From a single booth at a private party to multiple stages at a festival, we supply the gear and the know-how.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="events-hero" data-reveal>
+      <img src="assets/service-festival.jpg" alt="An open-air festival stage at dusk" data-parallax="0.12" loading="lazy">
+      <p class="panel-cap mono">Club nights · Private events · Brand activations · Festivals</p>
+    </div>
+
+    <div class="events-cols">
+      <div class="ev-card" data-reveal>
+        <h3>Rentals</h3>
+        <p>A club-standard DJ booth, delivered, set up and collected anywhere in Pakistan.</p>
+        <ul class="ticks">
+          <li>2× Pioneer CDJ-3000 and a Pioneer DJM-A9</li>
+          <li>Speakers for the booth and the room</li>
+          <li>Technical assistance, delivery, setup and collection</li>
+        </ul>
+        <a href="#rentals" class="btn">See the rental setup <span class="arr">→</span></a>
+      </div>
+      <div class="ev-card" data-reveal style="--d:1">
+        <h3>Consultation</h3>
+        <p>Help with planning your event, so your DJs walk into a booth they're happy to play.</p>
+        <ul class="ticks">
+          <li>Specs based on your line-up and the artists' tech riders</li>
+          <li>Booth layout and monitoring advice</li>
+          <li>Equipment planning for multi-stage festivals</li>
+        </ul>
+        <a href="#quote" class="btn" data-type="event-consult">Book a consultation <span class="arr">→</span></a>
+      </div>
+    </div>
+  </section>
+
+  <!-- RENTALS -->
+  <section class="section wrap rentals" id="rentals">
+    <div class="head">
+      <div class="split">
+        <div class="label" data-reveal>06 — Rentals<span class="mono">Nationwide · Pakistan</span></div>
+        <div>
+          <h2 class="h2 wide" data-reveal style="--d:1">The club-standard<br>booth, anywhere.</h2>
+          <p class="sub" data-reveal style="--d:2">The setup found in DJ booths around the world, rented as a complete package. We deliver it, set it up, support it on the night and collect it afterwards, anywhere in Pakistan.</p>
+        </div>
+      </div>
+    </div>
+
+    <article class="rig" data-reveal>
+      <div class="rig-media">
+        <img src="assets/tier-pro.jpg" alt="Two Pioneer CDJ-3000 media players either side of a Pioneer DJM-A9 mixer" loading="lazy">
+        <span class="tier-tag mono">Available nationwide</span>
+        <span class="rig-code mono">Rig 01 / Club standard</span>
+      </div>
+
+      <div class="rig-body">
+        <div class="rig-title">
+          <span class="mono">Rental package</span>
+          <h3 class="wide">The Booth</h3>
+          <p>Everything a headline DJ expects to walk up to, with our team handling the logistics from start to finish.</p>
+        </div>
+
+        <div class="spec">
+          <h4 class="mono">Equipment</h4>
+          <dl>
+            <div><dt>Media players</dt><dd><b>2×</b> Pioneer CDJ-3000</dd></div>
+            <div><dt>Mixer</dt><dd><b>1×</b> Pioneer DJM-A9</dd></div>
+            <div><dt>Sound</dt><dd>Speakers</dd></div>
+          </dl>
+        </div>
+
+        <div class="spec">
+          <h4 class="mono">Service included</h4>
+          <dl>
+            <div><dt>Technical assistance</dt><dd>On-hand support</dd></div>
+            <div><dt>Delivery</dt><dd>To your venue</dd></div>
+            <div><dt>Setup</dt><dd>Installed &amp; tested</dd></div>
+            <div><dt>Collection</dt><dd>After the event</dd></div>
+          </dl>
+        </div>
+
+        <div class="rig-cta">
+          <a href="#quote" class="btn solid" data-type="rental">Request a rental quote <span class="arr">→</span></a>
+          <p>Quotes are based on your city, dates and event.</p>
+        </div>
+      </div>
+    </article>
+
+    <ol class="flow" aria-label="How a rental works">
+      <li data-reveal><span class="flow-n wide">01</span><h4>Delivery</h4><p>We bring the full setup to your venue, wherever it is in Pakistan.</p></li>
+      <li data-reveal style="--d:1"><span class="flow-n wide">02</span><h4>Setup</h4><p>Everything is installed, connected and sound-checked before doors open.</p></li>
+      <li data-reveal style="--d:2"><span class="flow-n wide">03</span><h4>Technical assistance</h4><p>Our team is on hand to support the DJs and keep the booth running.</p></li>
+      <li data-reveal style="--d:3"><span class="flow-n wide">04</span><h4>Collection</h4><p>When the night is done, we pack everything down and take it away.</p></li>
+    </ol>
+  </section>
+
+  <!-- QUOTE -->
+  <section class="section wrap quote" id="quote">
+    <div class="head">
+      <div class="split">
+        <div class="label" data-reveal>07 — Get in touch<span class="mono">Quotes &amp; enquiries</span></div>
+        <div>
+          <h2 class="h2 wide" data-reveal style="--d:1">Tell us what<br>you need.</h2>
+          <p class="sub" data-reveal style="--d:2">Buying advice, sourcing, a rental or event planning. Send the details and we'll get back to you with recommendations or a quote.</p>
+        </div>
+      </div>
+    </div>
+
+    <form class="form" id="quoteForm" novalidate data-reveal>
+      <fieldset class="field full">
+        <legend>I'm looking for</legend>
+        <div class="chips">
+          <label class="chip"><input type="radio" name="type" value="advice" checked><span>Buying advice</span></label>
+          <label class="chip"><input type="radio" name="type" value="sourcing"><span>Equipment sourcing</span></label>
+          <label class="chip"><input type="radio" name="type" value="rental"><span>Event / festival rental</span></label>
+          <label class="chip"><input type="radio" name="type" value="event-consult"><span>Event consultation</span></label>
+        </div>
+      </fieldset>
+
+      <fieldset class="field full">
+        <legend>My level</legend>
+        <div class="chips">
+          <label class="chip"><input type="radio" name="level" value="Beginner"><span>Beginner</span></label>
+          <label class="chip"><input type="radio" name="level" value="Intermediate"><span>Intermediate</span></label>
+          <label class="chip"><input type="radio" name="level" value="Professional"><span>Professional</span></label>
+          <label class="chip"><input type="radio" name="level" value="Not sure" checked><span>Not sure</span></label>
+        </div>
+      </fieldset>
+
+      <div class="field"><label for="f-name">Name</label><input class="input" id="f-name" name="name" autocomplete="name" required></div>
+      <div class="field"><label for="f-contact">Email or WhatsApp</label><input class="input" id="f-contact" name="contact" autocomplete="email" required></div>
+      <div class="field"><label for="f-city">City</label><input class="input" id="f-city" name="city" autocomplete="address-level2" placeholder="e.g. Karachi"></div>
+      <div class="field"><label for="f-budget">Budget (optional)</label><input class="input" id="f-budget" name="budget" placeholder="e.g. PKR 150,000"></div>
+
+      <div class="field full cond" data-for="sourcing"><label for="f-model">Equipment / model you want sourced</label><input class="input" id="f-model" name="model" placeholder="Brand, model, quantity"></div>
+      <div class="field cond" data-for="rental event-consult"><label for="f-date">Event date</label><input class="input" id="f-date" name="date" type="date"></div>
+      <div class="field cond" data-for="rental event-consult"><label for="f-venue">Venue &amp; expected crowd</label><input class="input" id="f-venue" name="venue" placeholder="e.g. Rooftop, 300 guests"></div>
+
+      <div class="field full"><label for="f-msg">Tell us more</label><textarea class="input" id="f-msg" name="message" placeholder="What you play, where you play, what you already own…"></textarea></div>
+
+      <div class="form-note" id="formNote" role="status"></div>
+      <div class="form-foot">
+        <p>This opens your email app with your request filled in. You can also write to us at <a href="mailto:hello@djtoolspakistan.com" style="text-decoration:underline">hello@djtoolspakistan.com</a>.</p>
+        <button type="submit" class="btn solid">Send request <span class="arr">→</span></button>
+      </div>
+    </form>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="foot-grid">
+      <div><p class="foot-lead">DJ equipment, advice and sourcing for Pakistan's DJs, from first mix to main stage.</p></div>
+      <div><h5>Gear</h5><a href="#gear">Beginner</a><a href="#gear">Intermediate</a><a href="#gear">Professional</a></div>
+      <div><h5>Services</h5><a href="#services">Buying advice</a><a href="#sourcing">Sourcing</a><a href="#rentals">Rentals</a><a href="#events">Event consultation</a></div>
+      <div><h5>Contact</h5><a href="mailto:hello@djtoolspakistan.com">hello@djtoolspakistan.com</a><a href="#quote">Get a quote</a></div>
+    </div>
+    <div class="wordmark wide" aria-hidden="true"><img src="assets/logo-white.png" alt="">DJ Tools PK</div>
+    <div class="foot-bar mono"><span>© <span id="year">2026</span> DJ Tools Pakistan · Est. 2022</span><span data-clock="Asia/Karachi" data-prefix="Karachi ">--:--:--</span></div>
+  </div>
+</footer>
+
+<div class="preview" id="preview" aria-hidden="true"><img alt=""></div>
+
+<script>
+(() => {
+  const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const nav = document.getElementById('nav');
+  const menu = document.getElementById('menu');
+  const menuBtn = document.getElementById('menuBtn');
+
+  // Live clocks
+  const clocks = [...document.querySelectorAll('[data-clock]')];
+  const fmt = {};
+  const tick = () => clocks.forEach(el => {
+    const tz = el.dataset.clock;
+    fmt[tz] ||= new Intl.DateTimeFormat('en-GB', {timeZone: tz, hour: '2-digit', minute: '2-digit', second: '2-digit', hour12: false});
+    el.textContent = (el.dataset.prefix || '') + fmt[tz].format(new Date());
+  });
+  tick(); setInterval(tick, 1000);
+  document.getElementById('year').textContent = new Date().getFullYear();
+
+  // Menu
+  const setMenu = open => {
+    menu.classList.toggle('open', open);
+    menu.setAttribute('aria-hidden', !open);
+    menuBtn.setAttribute('aria-expanded', open);
+    menuBtn.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
+    document.body.classList.toggle('menu-open', open);
+    nav.classList.remove('hidden');
+  };
+  menuBtn.addEventListener('click', () => setMenu(!menu.classList.contains('open')));
+  menu.querySelectorAll('a').forEach(a => a.addEventListener('click', () => setMenu(false)));
+  addEventListener('keydown', e => { if (e.key === 'Escape') setMenu(false); });
+  matchMedia('(min-width: 961px)').addEventListener('change', e => { if (e.matches) setMenu(false); });
+
+  // Scroll: nav state + parallax
+  const parallax = [...document.querySelectorAll('[data-parallax]')];
+  let lastY = scrollY, ticking = false;
+  const onScroll = () => {
+    const y = scrollY;
+    nav.classList.toggle('scrolled', y > 8);
+    if (!menu.classList.contains('open')) nav.classList.toggle('hidden', y > lastY && y > 400);
+    lastY = y;
+    if (!reduce) parallax.forEach(img => {
+      const r = img.parentElement.getBoundingClientRect();
+      if (r.bottom < 0 || r.top > innerHeight) return;
+      const offset = (r.top + r.height / 2 - innerHeight / 2) * -parseFloat(img.dataset.parallax);
+      img.style.setProperty('--py', offset.toFixed(1) + 'px');
+    });
+    ticking = false;
+  };
+  addEventListener('scroll', () => { if (!ticking) { ticking = true; requestAnimationFrame(onScroll); } }, {passive: true});
+  addEventListener('resize', onScroll);
+  onScroll();
+
+  // Active nav link
+  const links = [...document.querySelectorAll('.nav-links a')];
+  const spy = new IntersectionObserver(entries => entries.forEach(en => {
+    if (en.isIntersecting) links.forEach(l => l.classList.toggle('active', l.getAttribute('href') === '#' + en.target.id));
+  }), {rootMargin: '-45% 0px -50% 0px'});
+  ['gear','services','culture','sourcing','events','rentals'].forEach(id => spy.observe(document.getElementById(id)));
+
+  // Reveal on scroll
+  const io = new IntersectionObserver(entries => entries.forEach(en => {
+    if (en.isIntersecting) { en.target.classList.add('in'); io.unobserve(en.target); }
+  }), {rootMargin: '0px 0px -8% 0px', threshold: .08});
+  document.querySelectorAll('[data-reveal]').forEach(el => io.observe(el));
+
+  // Service hover preview
+  const preview = document.getElementById('preview');
+  if (matchMedia('(hover: hover) and (pointer: fine)').matches && !reduce) {
+    const pImg = preview.querySelector('img');
+    let tx = 0, ty = 0, x = 0, y = 0, raf = null;
+    const loop = () => {
+      x += (tx - x) * .14; y += (ty - y) * .14;
+      preview.style.setProperty('--x', x + 'px');
+      preview.style.setProperty('--y', y + 'px');
+      raf = Math.abs(tx - x) + Math.abs(ty - y) > .5 ? requestAnimationFrame(loop) : null;
+    };
+    document.querySelectorAll('.svc').forEach(row => {
+      row.addEventListener('mouseenter', e => {
+        pImg.src = row.dataset.img;
+        tx = x = e.clientX + 24; ty = y = e.clientY - 110;
+        loop(); preview.classList.add('on');
+      });
+      row.addEventListener('mousemove', e => {
+        tx = Math.min(e.clientX + 24, innerWidth - 380); ty = e.clientY - 110;
+        if (!raf) loop();
+      });
+      row.addEventListener('mouseleave', () => preview.classList.remove('on'));
+    });
+  }
+
+  // Quote form
+  const form = document.getElementById('quoteForm');
+  const note = document.getElementById('formNote');
+  const typeLabels = {advice: 'Buying advice', sourcing: 'Equipment sourcing', rental: 'Event / festival rental', 'event-consult': 'Event consultation'};
+  const syncConditional = () => {
+    const t = form.type.value;
+    form.querySelectorAll('.cond').forEach(f => f.classList.toggle('show', f.dataset.for.split(' ').includes(t)));
+  };
+  form.querySelectorAll('input[name="type"]').forEach(r => r.addEventListener('change', syncConditional));
+  syncConditional();
+
+  document.querySelectorAll('[data-type]').forEach(el => el.addEventListener('click', () => {
+    const t = form.querySelector(`input[name="type"][value="${el.dataset.type}"]`);
+    if (t) t.checked = true;
+    if (el.dataset.level) {
+      const l = form.querySelector(`input[name="level"][value="${el.dataset.level}"]`);
+      if (l) l.checked = true;
+    }
+    syncConditional();
+  }));
+
+  form.addEventListener('submit', e => {
+    e.preventDefault();
+    const d = new FormData(form);
+    if (!d.get('name').trim() || !d.get('contact').trim()) {
+      note.textContent = 'Please add your name and an email or WhatsApp number so we can reply.';
+      note.classList.add('show');
+      (d.get('name').trim() ? form.contact : form.name).focus();
+      return;
+    }
+    const type = typeLabels[d.get('type')];
+    const shown = name => {
+      const cond = form.querySelector(`[name="${name}"]`).closest('.cond');
+      return !cond || cond.classList.contains('show');
+    };
+    const body = [
+      ['Request', 'type'], ['Level', 'level'], ['Name', 'name'], ['Contact', 'contact'], ['City', 'city'],
+      ['Budget', 'budget'], ['Equipment / model', 'model'], ['Event date', 'date'], ['Venue & crowd', 'venue'], ['Details', 'message']
+    ]
+      .filter(([, n]) => shown(n) && String(d.get(n) || '').trim())
+      .map(([k, n]) => `${k}: ${n === 'type' ? type : d.get(n)}`)
+      .join('\n');
+    location.href = `mailto:hello@djtoolspakistan.com?subject=${encodeURIComponent(`${type} — ${d.get('name')}`)}&body=${encodeURIComponent(body)}`;
+    note.textContent = 'Your email app should open with the request filled in. If it doesn\'t, email us at hello@djtoolspakistan.com.';
+    note.classList.add('show');
+  });
+})();
+</script>
+</body>
+</html>
